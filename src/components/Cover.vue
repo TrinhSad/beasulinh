@@ -16,7 +16,7 @@
             </div>
 
             <div class="bouquet-container" :class="{ 'show': showBouquet }">
-                <img :src="bouquetImage" alt="Bouquet of roses" class="bouquet-image animate-gentle-sway" />
+                <img :src="bouquetImage" alt="Bouquet of roses" class="bouquet-image" />
                 <div 
                     v-if="showButton" 
                     class="love-letter-btn" 
@@ -169,7 +169,7 @@ export default {
             // Show button after 5 seconds
             setTimeout(() => {
                 this.showButton = true;
-            }, 3000);
+            }, 5000);
         },
 
         handleButtonClick() {
@@ -194,15 +194,6 @@ export default {
         closeModal() {
             this.showModal = false;
             document.body.style.overflow = 'auto';
-        }
-    },
-    
-    // Debug - có thể xóa sau
-    watch: {
-        currentMessageIndex(newVal) {
-            console.log(`Current message index: ${newVal}, Total messages: ${this.messages.length}`);
-            console.log(`Button text should be: ${this.buttonText}`);
-            console.log(`Has seen all messages: ${this.hasSeenAllMessages}`);
         }
     }
 }
@@ -362,9 +353,6 @@ export default {
     width: 300px;
     height: 400px;
     object-fit: cover;
-    /* border-radius: 25px; */
-    /* box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4); */
-    /* border: 4px solid #ffb6c1; */
 }
 
 .love-letter-btn {
@@ -411,10 +399,6 @@ export default {
 .love-letter-btn.disabled .layer-2,
 .love-letter-btn.disabled .layer-3 {
     background: linear-gradient(45deg, #999, #bbb);
-}
-
-.love-letter-btn.disabled .sparkles {
-    opacity: 0;
 }
 
 .btn-background {
@@ -522,67 +506,6 @@ export default {
 .love-letter-btn:hover .btn-glow {
     opacity: 1;
     animation: glowPulse 1.5s ease-in-out infinite;
-}
-
-.sparkles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.love-letter-btn:hover .sparkles {
-    opacity: 1;
-}
-
-.sparkle {
-    position: absolute;
-    font-size: 12px;
-    animation: sparkleFloat 3s ease-in-out infinite;
-}
-
-.sparkle-1 {
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.sparkle-2 {
-    top: 20%;
-    right: 10%;
-    animation-delay: 0.5s;
-}
-
-.sparkle-3 {
-    bottom: 15%;
-    left: 20%;
-    animation-delay: 1s;
-}
-
-.sparkle-4 {
-    bottom: 10%;
-    right: 15%;
-    animation-delay: 1.5s;
-}
-
-.letter-envelope {
-    font-size: 1.8rem;
-    display: block;
-    margin: 0;
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
-}
-
-.letter-text {
-    font-size: 14px;
-    color: #fff;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    margin: 0;
 }
 
 /* Modal Styles */
@@ -811,25 +734,6 @@ export default {
     50% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-@keyframes sparkleFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
-    }
-    25% {
-        transform: translateY(-5px) rotate(90deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-2px) rotate(180deg);
-        opacity: 0.8;
-    }
-    75% {
-        transform: translateY(-7px) rotate(270deg);
-        opacity: 1;
     }
 }
 
