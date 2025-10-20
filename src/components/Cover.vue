@@ -17,12 +17,8 @@
 
             <div class="bouquet-container" :class="{ 'show': showBouquet }">
                 <img :src="bouquetImage" alt="Bouquet of roses" class="bouquet-image" />
-                <div 
-                    v-if="showButton" 
-                    class="love-letter-btn" 
-                    :class="{ 'show': showButton, 'disabled': hasSeenAllMessages }"
-                    @click="handleButtonClick"
-                >
+                <div v-if="showButton" class="love-letter-btn"
+                    :class="{ 'show': showButton, 'disabled': hasSeenAllMessages }" @click="handleButtonClick">
                     <div class="btn-background">
                         <div class="btn-layer layer-1"></div>
                         <div class="btn-layer layer-2"></div>
@@ -31,8 +27,8 @@
                     <div class="btn-content">
                         <div class="btn-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
                             </svg>
                             <div class="heart-float">�</div>
                         </div>
@@ -48,8 +44,8 @@
             <div class="final-container">
                 <img :src="finalImage" alt="Thank you" class="final-image animate-float" />
                 <div class="final-text">
-                    <h1>🌹 Xiaxia🌹</h1>
-                    <p class="final-subtitle">Live đều đặn, ngủ sớm ạ!</p>
+                    <h1>🌹 Yeah🌹</h1>
+                    <p class="final-subtitle">Khách không đông, nghỉ không làm nữa!</p>
                 </div>
             </div>
         </div>
@@ -60,18 +56,13 @@
                 <button class="close-btn" @click="closeModal">&times;</button>
                 <div class="modal-body">
                     <h2 class="modal-title">{{ currentMessage.title }}</h2>
-                    
+
                     <!-- Image gallery -->
                     <div v-if="currentMessage.images" class="image-gallery">
-                        <img 
-                            v-for="(image, index) in currentMessage.images" 
-                            :key="index"
-                            :src="image" 
-                            :alt="`Image ${index + 1}`"
-                            class="modal-image"
-                        />
+                        <img v-for="(image, index) in currentMessage.images" :key="index" :src="image"
+                            :alt="`Image ${index + 1}`" class="modal-image" />
                     </div>
-                    
+
                     <p class="modal-message">
                         {{ currentMessage.content }}
                     </p>
@@ -92,45 +83,67 @@ export default {
             showButton: false,
             showModal: false,
             currentMessageIndex: 0,
-            giftImage: new URL('../assets/img/me.jpeg', import.meta.url).href,
+            giftImage: new URL('../assets/img/yeah.jpeg', import.meta.url).href,
             bouquetImage: new URL('../assets/img/flower.png', import.meta.url).href,
-            finalImage: new URL('../assets/img/xiaxia.jpg', import.meta.url).href,
+            finalImage: new URL('../assets/img/khach.jpeg', import.meta.url).href,
+            // messages: [
+            //     {
+            //         title: "💕 Lời chúc đầu tiên 💕",
+            //         content: "Chúc bạn 20/10 thật rực rỡ, xinh đẹp và luôn được yêu thương như chính cách bạn lan tỏa năng lượng tích cực cho mọi người.",
+            //         decoration: "🌹🌸🌹",
+            //         images: [
+            //             new URL('../assets/img/baesulinh.jpeg', import.meta.url).href,
+            //             new URL('../assets/img/foryou.jpeg', import.meta.url).href
+            //         ]
+            //     },
+            //     {
+            //         title: "🌺 Lời chúc thứ hai 🌺",
+            //         content: "Chúc bạn luôn tươi như nắng sớm, rạng rỡ như đóa hoa vừa nở và đủ mạnh mẽ để không cần ai tưới vẫn tự tỏa hương",
+            //         decoration: "🌺✨🌺",
+            //         images: [
+            //             new URL('../assets/img/ok.jpeg', import.meta.url).href,
+            //             new URL('../assets/img/wow.jpeg', import.meta.url).href
+            //         ]
+            //     },
+            //     {
+            //         title: "🦋 Lời chúc thứ ba 🦋",
+            //         content: "Chúc bạn luôn gặp điều tốt lành, đủ dịu dàng để khiến người khác ấm lòng và đủ kiên cường để khiến chính mình tự hào",
+            //         decoration: "🦋💖🦋",
+            //         images: [
+            //             new URL('../assets/img/binhtinhsong.jpeg', import.meta.url).href,
+            //             new URL('../assets/img/you.jpeg', import.meta.url).href
+            //         ]
+            //     },
+            //     {
+            //         title: "🌟 Lời chúc cuối nè 🌟",
+            //         content: "Chúc bạn 20/10 tràn đầy niềm vui, lúc nào cũng được yêu thương, và dù có bận đến đâu vẫn biết cách khiến bản thân xinh đẹp, an yên",
+            //         decoration: "🌟💫🌟",
+            //         images: [
+            //             new URL('../assets/img/kpi.jpeg', import.meta.url).href,
+            //             new URL('../assets/img/no.jpeg', import.meta.url).href
+            //         ]
+            //     }
+            // ]
             messages: [
                 {
                     title: "💕 Lời chúc đầu tiên 💕",
-                    content: "Chúc bạn 20/10 thật rực rỡ, xinh đẹp và luôn được yêu thương như chính cách bạn lan tỏa năng lượng tích cực cho mọi người.",
+                    content: "Chúc các chị em 20/10 thật rực rỡ, xinh đẹp và luôn được yêu thương — như chính cách mọi người vẫn lan tỏa năng lượng tích cực cho cả thế giới này.",
                     decoration: "🌹🌸🌹",
-                    images: [
-                        new URL('../assets/img/baesulinh.jpeg', import.meta.url).href,
-                        new URL('../assets/img/foryou.jpeg', import.meta.url).href
-                    ]
                 },
                 {
                     title: "🌺 Lời chúc thứ hai 🌺",
-                    content: "Chúc bạn luôn tươi như nắng sớm, rạng rỡ như đóa hoa vừa nở và đủ mạnh mẽ để không cần ai tưới vẫn tự tỏa hương",
+                    content: "Chúc các chị em luôn tươi như nắng sớm, rạng rỡ như đóa hoa vừa nở, và đủ mạnh mẽ để chẳng cần ai tưới vẫn tự tỏa hương.",
                     decoration: "🌺✨🌺",
-                    images: [
-                        new URL('../assets/img/ok.jpeg', import.meta.url).href,
-                        new URL('../assets/img/wow.jpeg', import.meta.url).href
-                    ]
                 },
                 {
                     title: "🦋 Lời chúc thứ ba 🦋",
-                    content: "Chúc bạn luôn gặp điều tốt lành, đủ dịu dàng để khiến người khác ấm lòng và đủ kiên cường để khiến chính mình tự hào",
+                    content: "Chúc các chị em luôn gặp điều tốt lành, đủ dịu dàng để khiến người khác thấy ấm lòng, và đủ kiên cường để khiến chính mình tự hào.",
                     decoration: "🦋💖🦋",
-                    images: [
-                        new URL('../assets/img/binhtinhsong.jpeg', import.meta.url).href,
-                        new URL('../assets/img/you.jpeg', import.meta.url).href
-                    ]
                 },
                 {
                     title: "🌟 Lời chúc cuối nè 🌟",
-                    content: "Chúc bạn 20/10 tràn đầy niềm vui, lúc nào cũng được yêu thương, và dù có bận đến đâu vẫn biết cách khiến bản thân xinh đẹp, an yên",
+                    content: "Chúc tất cả chị em có một 20/10 tràn đầy niềm vui, lúc nào cũng được yêu thương, và dù có bận rộn đến đâu vẫn biết cách khiến mình xinh đẹp, an yên và tự tin.",
                     decoration: "🌟💫🌟",
-                    images: [
-                        new URL('../assets/img/kpi.jpeg', import.meta.url).href,
-                        new URL('../assets/img/no.jpeg', import.meta.url).href
-                    ]
                 }
             ]
         }
@@ -142,7 +155,7 @@ export default {
             } else if (this.currentMessageIndex < this.messages.length) {
                 return "Còn tiếp nè";
             } else {
-                return "Hết rồi nhen";
+                return "Hết rồi! Hết rồi!";
             }
         },
         currentMessage() {
@@ -177,14 +190,14 @@ export default {
             if (this.hasSeenAllMessages) {
                 return;
             }
-            
+
             this.openModal();
         },
 
         openModal() {
             this.showModal = true;
             document.body.style.overflow = 'hidden';
-            
+
             // Tăng currentMessageIndex để hiển thị tin nhắn tiếp theo (nhưng không vượt quá)
             if (this.currentMessageIndex < this.messages.length) {
                 this.currentMessageIndex++;
@@ -677,10 +690,12 @@ export default {
         transform: translate(-50%, -50%) scale(0.5) rotateZ(-180deg);
         filter: blur(10px);
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.15) rotateZ(-90deg);
         filter: blur(2px);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1) rotateZ(0deg);
@@ -689,28 +704,37 @@ export default {
 }
 
 @keyframes layerShift {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0) scale(1);
     }
+
     50% {
         transform: translateX(5px) scale(1.02);
     }
 }
 
 @keyframes iconFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-2px) rotate(5deg);
     }
 }
 
 @keyframes heartPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 1;
@@ -718,19 +742,25 @@ export default {
 }
 
 @keyframes textGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
     }
 }
 
 @keyframes glowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.5;
         transform: translate(-50%, -50%) scale(1);
     }
+
     50% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.1);
@@ -742,6 +772,7 @@ export default {
         opacity: 0;
         transform: translateY(50px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
