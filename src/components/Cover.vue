@@ -42,7 +42,7 @@
         <!-- Scene 3: Final thank you scene -->
         <div v-else class="final-scene">
             <div class="final-container">
-                <img :src="finalImage" alt="Thank you" class="final-image animate-float" />
+                <img :src="finalImage" alt="Happy Women’s Day" class="final-image animate-float" />
                 <div class="final-text">
                     <h1>🌹 Yeah🌹</h1>
                     <p class="final-subtitle">Khách không đông, nghỉ không làm nữa!</p>
