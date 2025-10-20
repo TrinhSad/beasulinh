@@ -16,13 +16,9 @@
             </div>
 
             <div class="bouquet-container" :class="{ 'show': showBouquet }">
-                <img :src="bouquetImage" alt="Bouquet of roses" class="bouquet-image animate-gentle-sway" />
-                <div 
-                    v-if="showButton" 
-                    class="love-letter-btn" 
-                    :class="{ 'show': showButton, 'disabled': hasSeenAllMessages }"
-                    @click="handleButtonClick"
-                >
+                <img :src="bouquetImage" alt="Bouquet of roses" class="bouquet-image" />
+                <div v-if="showButton" class="love-letter-btn"
+                    :class="{ 'show': showButton, 'disabled': hasSeenAllMessages }" @click="handleButtonClick">
                     <div class="btn-background">
                         <div class="btn-layer layer-1"></div>
                         <div class="btn-layer layer-2"></div>
@@ -31,8 +27,8 @@
                     <div class="btn-content">
                         <div class="btn-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                <polyline points="22,6 12,13 2,6" />
                             </svg>
                             <div class="heart-float">�</div>
                         </div>
@@ -46,10 +42,11 @@
         <!-- Scene 3: Final thank you scene -->
         <div v-else class="final-scene">
             <div class="final-container">
-                <img :src="finalImage" alt="Thank you" class="final-image animate-float" />
+                <img :src="finalImage" alt="Happy Women’s Day" class="final-image animate-float" />
                 <div class="final-text">
-                    <h1>🌹 Xiaxia🌹</h1>
-                    <p class="final-subtitle">Live đều đặn, ngủ sớm ạ!</p>
+                    <h1>🌷 Happy Women’s Day 🌷</h1>
+                    <p class="final-subtitle">Chúc chị em luôn xinh đẹp, hạnh phúc và được yêu thương thật nhiều nha!
+                    </p>
                 </div>
             </div>
         </div>
@@ -60,18 +57,13 @@
                 <button class="close-btn" @click="closeModal">&times;</button>
                 <div class="modal-body">
                     <h2 class="modal-title">{{ currentMessage.title }}</h2>
-                    
+
                     <!-- Image gallery -->
                     <div v-if="currentMessage.images" class="image-gallery">
-                        <img 
-                            v-for="(image, index) in currentMessage.images" 
-                            :key="index"
-                            :src="image" 
-                            :alt="`Image ${index + 1}`"
-                            class="modal-image"
-                        />
+                        <img v-for="(image, index) in currentMessage.images" :key="index" :src="image"
+                            :alt="`Image ${index + 1}`" class="modal-image" />
                     </div>
-                    
+
                     <p class="modal-message">
                         {{ currentMessage.content }}
                     </p>
@@ -92,45 +84,30 @@ export default {
             showButton: false,
             showModal: false,
             currentMessageIndex: 0,
-            giftImage: new URL('../assets/img/me.jpeg', import.meta.url).href,
+            giftImage: new URL('../assets/img/foryou.jpeg', import.meta.url).href,
             bouquetImage: new URL('../assets/img/flower.png', import.meta.url).href,
-            finalImage: new URL('../assets/img/xiaxia.jpg', import.meta.url).href,
+            finalImage: new URL('../assets/img/khach.jpeg', import.meta.url).href,
             messages: [
                 {
-                    title: "💕 Lời chúc đầu tiên 💕",
-                    content: "Chúc bạn 20/10 thật rực rỡ, xinh đẹp và luôn được yêu thương như chính cách bạn lan tỏa năng lượng tích cực cho mọi người.",
-                    decoration: "🌹🌸🌹",
-                    images: [
-                        new URL('../assets/img/baesulinh.jpeg', import.meta.url).href,
-                        new URL('../assets/img/foryou.jpeg', import.meta.url).href
-                    ]
+                    title: "💐 Lời chúc đầu tiên 💐",
+                    content: "Chúc tất cả chị em phụ nữ có một ngày 20/10 thật rực rỡ, luôn tự tin, xinh đẹp và lan tỏa năng lượng tích cực đến mọi người xung quanh.",
+                    decoration: "🌸🌷🌸",
                 },
                 {
                     title: "🌺 Lời chúc thứ hai 🌺",
-                    content: "Chúc bạn luôn tươi như nắng sớm, rạng rỡ như đóa hoa vừa nở và đủ mạnh mẽ để không cần ai tưới vẫn tự tỏa hương",
+                    content: "Chúc phái đẹp luôn tươi như nắng sớm, mạnh mẽ như mùa xuân và đủ bản lĩnh để theo đuổi mọi điều mình mong muốn.",
                     decoration: "🌺✨🌺",
-                    images: [
-                        new URL('../assets/img/ok.jpeg', import.meta.url).href,
-                        new URL('../assets/img/wow.jpeg', import.meta.url).href
-                    ]
                 },
                 {
                     title: "🦋 Lời chúc thứ ba 🦋",
-                    content: "Chúc bạn luôn gặp điều tốt lành, đủ dịu dàng để khiến người khác ấm lòng và đủ kiên cường để khiến chính mình tự hào",
+                    content: "Chúc chị em luôn gặp nhiều may mắn, được yêu thương và trân trọng — không chỉ hôm nay mà là mỗi ngày trong năm.",
                     decoration: "🦋💖🦋",
-                    images: [
-                        new URL('../assets/img/binhtinhsong.jpeg', import.meta.url).href,
-                        new URL('../assets/img/you.jpeg', import.meta.url).href
-                    ]
+
                 },
                 {
-                    title: "🌟 Lời chúc cuối nè 🌟",
-                    content: "Chúc bạn 20/10 tràn đầy niềm vui, lúc nào cũng được yêu thương, và dù có bận đến đâu vẫn biết cách khiến bản thân xinh đẹp, an yên",
+                    title: "🌟 Lời chúc cuối 🌟",
+                    content: "Chúc tất cả phụ nữ luôn giữ nụ cười trên môi, trái tim ấm áp và tâm hồn bình yên, để mỗi ngày đều là một ngày đẹp như 20/10.",
                     decoration: "🌟💫🌟",
-                    images: [
-                        new URL('../assets/img/kpi.jpeg', import.meta.url).href,
-                        new URL('../assets/img/no.jpeg', import.meta.url).href
-                    ]
                 }
             ]
         }
@@ -169,7 +146,7 @@ export default {
             // Show button after 5 seconds
             setTimeout(() => {
                 this.showButton = true;
-            }, 3000);
+            }, 5000);
         },
 
         handleButtonClick() {
@@ -177,14 +154,14 @@ export default {
             if (this.hasSeenAllMessages) {
                 return;
             }
-            
+
             this.openModal();
         },
 
         openModal() {
             this.showModal = true;
             document.body.style.overflow = 'hidden';
-            
+
             // Tăng currentMessageIndex để hiển thị tin nhắn tiếp theo (nhưng không vượt quá)
             if (this.currentMessageIndex < this.messages.length) {
                 this.currentMessageIndex++;
@@ -194,15 +171,6 @@ export default {
         closeModal() {
             this.showModal = false;
             document.body.style.overflow = 'auto';
-        }
-    },
-    
-    // Debug - có thể xóa sau
-    watch: {
-        currentMessageIndex(newVal) {
-            console.log(`Current message index: ${newVal}, Total messages: ${this.messages.length}`);
-            console.log(`Button text should be: ${this.buttonText}`);
-            console.log(`Has seen all messages: ${this.hasSeenAllMessages}`);
         }
     }
 }
@@ -362,9 +330,6 @@ export default {
     width: 300px;
     height: 400px;
     object-fit: cover;
-    /* border-radius: 25px; */
-    /* box-shadow: 0 20px 40px rgba(255, 105, 180, 0.4); */
-    /* border: 4px solid #ffb6c1; */
 }
 
 .love-letter-btn {
@@ -411,10 +376,6 @@ export default {
 .love-letter-btn.disabled .layer-2,
 .love-letter-btn.disabled .layer-3 {
     background: linear-gradient(45deg, #999, #bbb);
-}
-
-.love-letter-btn.disabled .sparkles {
-    opacity: 0;
 }
 
 .btn-background {
@@ -522,67 +483,6 @@ export default {
 .love-letter-btn:hover .btn-glow {
     opacity: 1;
     animation: glowPulse 1.5s ease-in-out infinite;
-}
-
-.sparkles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.love-letter-btn:hover .sparkles {
-    opacity: 1;
-}
-
-.sparkle {
-    position: absolute;
-    font-size: 12px;
-    animation: sparkleFloat 3s ease-in-out infinite;
-}
-
-.sparkle-1 {
-    top: 10%;
-    left: 15%;
-    animation-delay: 0s;
-}
-
-.sparkle-2 {
-    top: 20%;
-    right: 10%;
-    animation-delay: 0.5s;
-}
-
-.sparkle-3 {
-    bottom: 15%;
-    left: 20%;
-    animation-delay: 1s;
-}
-
-.sparkle-4 {
-    bottom: 10%;
-    right: 15%;
-    animation-delay: 1.5s;
-}
-
-.letter-envelope {
-    font-size: 1.8rem;
-    display: block;
-    margin: 0;
-    filter: drop-shadow(0 2px 4px rgba(255, 255, 255, 0.8));
-}
-
-.letter-text {
-    font-size: 14px;
-    color: #fff;
-    font-weight: 600;
-    font-family: 'Poppins', sans-serif;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    margin: 0;
 }
 
 /* Modal Styles */
@@ -754,10 +654,12 @@ export default {
         transform: translate(-50%, -50%) scale(0.5) rotateZ(-180deg);
         filter: blur(10px);
     }
+
     50% {
         transform: translate(-50%, -50%) scale(1.15) rotateZ(-90deg);
         filter: blur(2px);
     }
+
     100% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1) rotateZ(0deg);
@@ -766,28 +668,37 @@ export default {
 }
 
 @keyframes layerShift {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0) scale(1);
     }
+
     50% {
         transform: translateX(5px) scale(1.02);
     }
 }
 
 @keyframes iconFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0) rotate(0deg);
     }
+
     50% {
         transform: translateY(-2px) rotate(5deg);
     }
 }
 
 @keyframes heartPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
         opacity: 0.8;
     }
+
     50% {
         transform: scale(1.2);
         opacity: 1;
@@ -795,41 +706,28 @@ export default {
 }
 
 @keyframes textGlow {
-    0%, 100% {
+
+    0%,
+    100% {
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
+
     50% {
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.3);
     }
 }
 
 @keyframes glowPulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.5;
         transform: translate(-50%, -50%) scale(1);
     }
+
     50% {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1.1);
-    }
-}
-
-@keyframes sparkleFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.7;
-    }
-    25% {
-        transform: translateY(-5px) rotate(90deg);
-        opacity: 1;
-    }
-    50% {
-        transform: translateY(-2px) rotate(180deg);
-        opacity: 0.8;
-    }
-    75% {
-        transform: translateY(-7px) rotate(270deg);
-        opacity: 1;
     }
 }
 
@@ -838,6 +736,7 @@ export default {
         opacity: 0;
         transform: translateY(50px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
